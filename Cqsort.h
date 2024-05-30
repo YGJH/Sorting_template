@@ -1,10 +1,11 @@
 #ifndef __QSORT__
 #define __QSORT__
-class Qsort{
-    protected:
+#include "Cheap.cpp"
+class Qsort : public HeapSort{
+    private:
 
     public:
-        void sort();
+        void qsort( bool(*cmp)(int *a , int *b) = Sort<T>::cmp_ ,int size , int *st , int *en);
 };
 
 #endif

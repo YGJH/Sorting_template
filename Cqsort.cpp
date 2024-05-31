@@ -7,7 +7,7 @@ void Qsort<T>::sort(T *st , T *en , bool(*cmp)(T &a , T &b) ) {
 	T *stt = st;
 	en--;
 	if(siz == 2) {
-		if(!cmp(*st , *en)) Sort<T>::swap(*st ,*en);
+		if(!cmp(*st , *en)) NNode<T>::swap(*st ,*en);
 		return;
 	}
 	else if ( siz < 2 ) {
@@ -27,7 +27,7 @@ void Qsort<T>::sort(T *st , T *en , bool(*cmp)(T &a , T &b) ) {
 		while(cmp(c , *en) && st != en) {
 			en--;
 		}
-		Sort<T>::swap(*st , *en);
+		NNode<T>::swap(*st , *en);
 		if(en != st && *en == *st) {
 			st++;
 		}

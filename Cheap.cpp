@@ -7,15 +7,15 @@ void HeapSort<T>::heapfiy(int size , bool(*func)(T &a , T &b) , int i) {
     int c1 = (i << 1) + 1;
     int c2 = (i << 1) + 2;
     int ma = i;
-    if( c1 < size && func(Sort<T>::arr[ma], Sort<T>::arr[c1])) {
+    if( c1 < size && func(Node<T>::arr[ma], Node<T>::arr[c1])) {
 	    ma = c1;
     }
-    if( c2 < size && func(Sort<T>::arr[ma] , Sort<T>::arr[c2])) {
+    if( c2 < size && func(Node<T>::arr[ma] , Node<T>::arr[c2])) {
 	    ma = c2;
     }
     if(ma != i) {
 
-		this->swap(Sort<T>::arr[ma] , Sort<T>::arr[i]);
+		this->swap(Node<T>::arr[ma] , Node<T>::arr[i]);
 		heapfiy(size ,func , ma);
     }
 }
@@ -32,7 +32,7 @@ void HeapSort<T>::sort(T *st , T *en , bool(*cmp)(T &a , T &b) ) {
 	build_heap(cmp , size);
 	// int size_ = size;
 	while(size--) {
-		this->swap(Sort<T>::arr[0] , Sort<T>::arr[size]);
+		this->swap(Node<T>::arr[0] , Node<T>::arr[size]);
 		heapfiy(size,  cmp , 0);
 	}
 return ;

@@ -11,8 +11,6 @@ signed main() {
         std::cin >> arr[i];
     }
     Qsort<int> qq(arr);
-    cerr << arr + n - 1 - arr << endl;
-
     // HeapSort<int> hep(arr , sz);
     // hep.sort([](int &a , int &b) -> bool { return a < b; }) ;
     // hep.print();

@@ -1,5 +1,6 @@
 #ifndef __SORT__
 #define __SORT__
+#include <iostream>
 template<class T>
 class Sort {
     protected:

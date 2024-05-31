@@ -11,14 +11,14 @@ signed main() {
         std::cin >> arr[i];
     }
     // heap sort
-//    HeapSort<int> hep(arr);
- ////   hep.sort(arr , arr + n , [](int &a , int &b) -> bool { return a < b; }) ;
-  ////  hep.print(arr , arr + n);
-//
+    // HeapSort<int> hep(arr);
+    // hep.sort(arr , arr + n , [](int &a , int &b) -> bool { return a < b; }) ;
+    // hep.print(arr , arr + n);
+
    //  Quick sort
-     Qsort<int> qq(arr);
-     qq.sort(arr , arr + n  , [](int &a , int &b)->bool{return a < b;});
-     qq.print(arr , arr + n);
+    Qsort<int> qq(arr);
+    qq.sort(arr , arr + n  , [](int &a , int &b)->bool{return a > b;});
+    qq.print(arr , arr + n);
     return 0;
 
 }

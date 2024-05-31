@@ -36,7 +36,7 @@ signed main() {
 		fread(tmp , size , 1 , ac);
 		re(tmp);
 		for(int i = 1 ; i < 10 ; i++) {
-			if(tb[i] < tb[i-1]){
+			if(tb[i] > tb[i-1]){
 				cout << "-1" << endl;
 				return 0;
 			}

@@ -1,15 +1,13 @@
 #include <iostream>
-#include "Cheap.cpp"
+#include "Cqsort.cpp"
+// #include "Cheap.cpp"
 using namespace std;
-bool cmp(int &a , int &b) {
-    return a < b;
-}
+
 signed main() {
-    int arr[] = {4, 10 , 2 ,3 ,5};
-    HeapSort<int> hsort(arr , 5);
-    hsort.print();
-    hsort.sort([](int &a , int &b) ->bool { return a > b ;});
-    hsort.print();
+    int arr[] = {10 , 5, 4 ,3 , 2};
+    int sz = sizeof(arr) / sizeof(int);
+    Qsort<int> qq(arr , sz);
+    qq.sort([](int &a , int &b) -> bool {return a < b} , arr , arr + sz);
     return 0;
 
 }

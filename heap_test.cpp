@@ -2,7 +2,7 @@
 using namespace std;
 int c1 , c2 , ma;
 template<typename T , typename V>
-auto cmp = [](T &a , V &b) {return a > b;};
+auto cmp = [](T &a , V &b) {return a < b;};
 void heapfiy(auto func , int * a , int size  , int i = 0) {
     if(i >= size) return ;
     c1 = (i << 1) + 1;
@@ -29,6 +29,11 @@ return ;
 template<typename T>
 void heap_sort(T *a , int size) {
 	build_heap(a , size);
+	cout << "test" << endl;
+	for(int i = 0 ; i < size ; i++) {
+		cout << a[i] << endl;
+	}
+	cout << endl;
 	while(size--){
 		swap(a[0] , a[size]);
 		heapfiy(cmp<int& , int&>, a , size , 0);

@@ -2,12 +2,22 @@
 #include "Cqsort.cpp"
 // #include "Cheap.cpp"
 using namespace std;
-
+const int MXN = 1e5;
+int arr[MXN];
+int n;
 signed main() {
-    int arr[] = {10 , 5, 4 ,3 , 2};
-    int sz = sizeof(arr) / sizeof(int);
-    Qsort<int> qq(arr , sz);
-    qq.sort([](int &a , int &b) -> bool {return a < b} , arr , arr + sz);
+    std::cin >> n;
+    for(int i = 0 ; i < n ; i++) {
+        std::cin >> arr[i];
+    }
+    Qsort<int> qq(arr);
+    cerr << arr + n - 1 - arr << endl;
+
+    // HeapSort<int> hep(arr , sz);
+    // hep.sort([](int &a , int &b) -> bool { return a < b; }) ;
+    // hep.print();
+    qq.sort(arr , arr + n  , [](int &a , int &b)->bool{return a < b;});
+    qq.print(arr , arr + n);
     return 0;
 
 }

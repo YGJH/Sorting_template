@@ -7,10 +7,9 @@ class HeapSort: virtual public Sort<T>{
     void heapfiy(bool(*func)(T &a , T &b), int i = 0);
     void build_heap( bool(*cmp)(T &a , T &b));
     public:
-    virtual void sort(bool(*cmp)(T &a , T &b) = Sort<T>::cmp_) override;
-    HeapSort<T>(T * arr , int size) : Sort<T> (arr , size) {} ;
+    virtual void sort(T *st , T *en , bool(*cmp)(T &a , T &b) = Sort<T>::cmp_) override;
+    HeapSort<T>(T * arr ) {
+        this-> arr = arr;
+   }
 };
-
-
-
 #endif

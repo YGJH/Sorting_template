@@ -37,8 +37,10 @@ void qsort(int *arr , bool(*cmp)(int *a , int *b) , int size , int *st , int *en
 		}
 	}
 	swap(st , c);
-	qsort(arr , cmp , size1  , stt , stt + size1 - 1 );
-	qsort(arr , cmp , size2 + 1 , stt + size - 1 - size2  , enn);
+//	qsort(arr , cmp , size1  , stt , stt + size1 - 1 );
+//	qsort(arr , cmp , size2 + 1 , stt + size - 1 - size2  , enn);
+	qsort(arr , cmp , size1+1 , stt , st);
+	qsort(arr , cmp , size2, st+1 , enn); 
 }
 
 signed main() {

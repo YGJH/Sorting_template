@@ -1,12 +1,14 @@
 #include "Csort.h"
 #include <iostream>
 template<class T>
-void Sort<T>::print() {
-    tmp = 0;
-    while(tmp < size ) {
-        std::cout << *(arr + tmp);
+void Sort<T>::print(T *st , T *en) {
+    T *tmp = st;
+    int size = (en - st) / sizeof(T); 
+    while(tmp != en) {
+        std::cout << *tmp;
         tmp++;
-        if(tmp < size) putchar(' ');
+        if(tmp != en)
+            putchar(' ');
     }
     std::cout << '\n';
 }

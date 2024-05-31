@@ -2,10 +2,12 @@
 #define __QSORT__
 #include "Cheap.cpp"
 template<class T>
-class Qsort : public HeapSort<T>{
+class Qsort : virtual public Sort<T>{
     public:
-        Qsort<T>(T *arr , int size) : HeapSort<T>(*arr , size) {};
-        void qsort( bool(*cmp)(int *a , int *b) = HeapSort<T>::cmp_ , T *st , T *en);
+        Qsort<T>(T *arr) {
+            this->arr = arr;
+        };
+        virtual void sort (T *st , T *en , bool(*cmp)(T &a , T &b) = Sort<T>::cmp_) override;
 };
 
 #endif

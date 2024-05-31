@@ -27,15 +27,13 @@ void HeapSort<T>::build_heap(bool(*cmp)(T &a , T &b)) {
 	return ;
 }
 template<class T>
-void HeapSort<T>::sort(bool(*cmp)(T &a , T &b) ) {
-	this->print();
+void HeapSort<T>::sort(T *st , T *en , bool(*cmp)(T &a , T &b) ) {
 	build_heap(cmp);
-	this->print();
-	int size_ = Sort<T>::size;
-	while(Sort<T>::size--){
-		this->swap(Sort<T>::arr[0] , Sort<T>::arr[Sort<T>::size]);
+	// int size_ = Sort<T>::size;
+	int size = (en - st ) / sizeof(T);
+	while(size--) {
+		this->swap(Sort<T>::arr[0] , Sort<T>::arr[size]);
 		heapfiy( cmp , 0);
 	}
-	Sort<T>::size = size_;
 return ;
 }

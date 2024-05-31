@@ -1,13 +1,15 @@
 #include "Cqsort.h"
 template<class T>
-void Qsort<T>::qsort( bool(*cmp)(T *a , T *b) = HeapSort<T>::cmp_ , T *st , T *en) {
-	if(Sort<T>::size <= 2) {
-		if(*st > *en) HeapSort<T>::swap(st ,en);
+void Qsort<T>::sort(T*st , T *en , bool(*cmp)(T &a , T &b) ) {
+	int siz = (en - st); 
+	T * enn = en;
+	en--;
+	if(siz <= 2) {
+		if(!cmp(*st , *en)) Sort<T>::swap(*st ,*en);
 		return;
 	}
 	T *stt = st;
-	T *enn = en;
-	T *c = (st + (HeapSort<T>::size>>1));
+	T *c = (st + (siz>>1));
 	if( (*c < *st && *st < *en) || (*c > *st && *st > *en) ) {
 		c = st;
 	}
@@ -16,23 +18,25 @@ void Qsort<T>::qsort( bool(*cmp)(T *a , T *b) = HeapSort<T>::cmp_ , T *st , T *e
 	}
 	int size1 = 1 , size2 = 1;
 	while(st != en) {
-		while(cmp(st ,c) && st != en) {
+		while(cmp(*st ,*c) && st != en) {
 			size1++;
 			st++;
 		}
-		while(cmp(c,en) && st != en) {
+		while(cmp(*c , *en) && st != en) {
 			en--;
 			size2++;
 		}
-		Sort<T>::swap(st , en);
+		Sort<T>::swap(*st , *en);
 		if(en != st && *st == *en) {
 			en--;
 			size2++;
 		}
 	}
-	swap(st , c);
-	qsort( cmp , size1  , stt , stt + size1 - 1 );
-	qsort( cmp , size2 + 1 , stt + size - 1 - size2  , enn);
+	Sort<T>::swap(*st , *c);
+	// qsort(size1 , stt , stt + size1 - 1, cmp);
+	sort(stt , st + 1 , cmp);
+	// qsort(size2 + 1 , stt + size - 1 - size2  , enn , cmp);
+	sort(st ,  enn , cmp);
 }
 
 // signed main() {

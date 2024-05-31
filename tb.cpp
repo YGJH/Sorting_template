@@ -26,7 +26,7 @@ void re(char *tmp) {
 signed main() {
 	while(1) {
 		system("./gen > input");
-		system("./qsort_test < input > output");
+		system("./main < input > output");
 		FILE *ac = fopen("output" , "r+");
 		int size ;
 		fseek(ac , 0 , SEEK_END);

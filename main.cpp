@@ -1,6 +1,6 @@
 #include <iostream>
 // #include "Cqsort.cpp"
-#include "Sort.h"
+#include "Sort.cpp"
 using namespace std;
 const int MXN = 1e3;
 int n;
@@ -35,6 +35,8 @@ signed main() {
     // Qsort<Book> qq(arr);
     // qq.sort(arr , arr + n);
     // qq.print(arr , arr + n, [](Book &a) {std::cout << a.id << ' ' << a.name << std::endl;});
+    Sort<Book> sort(arr ,arr + n);
+    sort.print(arr , arr + n , [](Book &a) { cout << a.id << ' ' << a.name << endl;});
     return 0;
 
 }

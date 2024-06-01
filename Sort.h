@@ -13,7 +13,6 @@ class Sort {
             else {
                 Qsort<T> qq(st);
                 qq.sort(st , en , cmp);
-                // qq.print(st , en, [](Book &a) {std::cout << a.id << ' ' << a.name << std::endl;});
             }
         }
         void print(T *st , T *en, void(*p)(T &a));

@@ -1,34 +1,58 @@
-#include <iostream>
+#include <cstdio>
 using namespace std;
-
-void hsort(int arr[] , int size , int i) {
-	int ma = i;
-	if(i >= size) return ;
-	int c1 = i * 2 + 1;
-	int c2 = i * 2 + 2;
-	if(c1 < size && arr[ma] < arr[c1]){
-		ma = c1;
-	}
-	if(c2 < size && arr[ma] < arr[c2]){
-		ma = c2;
-	}
-	if(ma != i) {
-		int tmp = arr[ma];
-		arr[ma] = arr[i];
-		arr[i] = tmp;
-		hsort(arr , size , ma);
-	}
-return;
+int T;
+inline void swap(int & a , int &b) {
+    T = a;
+    a = b;
+    b = T;
 }
-
+namespace mysort{
+    template<typename T>
+    void sort(T *st , T *en , bool(*cmp)(T &a , T &b) ) {
+        T * enn = en;
+        int siz = (en - st);
+        T *stt = st;
+        en--;
+        if(siz == 2) {
+            if(!cmp(*st , *en)) swap(*st ,*en);
+            return;
+        }
+        else if ( siz < 2 ) {
+            return ;
+        }
+        T c = *(st + (siz>>1));
+        if( (c < *st && *st < *en) || (c > *st && *st > *en) ) {
+            c = *st;
+        }
+        else if( (*en > c && *en < *st) || (*en < c && *en > *st)) {
+            c = *en;
+        }
+        while(st != en) {
+            while(cmp(*st , c) && st != en) {
+                st++;
+            }
+            while(cmp(c , *en) && st != en) {
+                en--;
+            }
+            swap(*st , *en);
+            if(en != st && *en == *st) {
+                st++;
+            }
+        }
+        sort(stt , st, cmp);
+        sort(st+1,  enn , cmp);
+    }
+}
+const int MXN = 1e5 + 1;
+int arr[MXN];
+int i , n ;
 signed main() {
-
-	int arr[] = {4 , 10 , 3 , 5 , 1 , 2};
-	hsort(arr , 6 , 0);
-	for(int i = 0 ; i < 6 ; i++) {
-		cout << arr[i] << endl;
-	}
-
-	return 0 ;
+    scanf("%d" , &n);
+    for(i = 0 ; i < n ; i++) {
+        scanf("%d" , &arr[i]);
+    }
+    mysort::sort<int>( arr , arr + n , [](int &a , int &b){return a < b;});
+    for(i = 0 ; i < n ; i ++) {
+        printf("%d " , arr[i]);
+    }
 }
-

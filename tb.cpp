@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-int tb[30];
+int tb[1000002];
 void re(char *tmp) {
 	int i = 0;
 	int kk = 0;
@@ -32,7 +32,7 @@ signed main() {
 		fseek(ac , 0 , SEEK_END);
 		size = ftell(ac);
 		rewind(ac);
-		char tmp[300];
+		char tmp[3000000];
 		fread(tmp , size , 1 , ac);
 		re(tmp);
 		for(int i = 1 ; i < 10 ; i++) {

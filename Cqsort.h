@@ -5,9 +5,7 @@
 template<class T>
 class Qsort : virtual public NNode<T>{
     public:
-        Qsort<T>(T *arr) {
-            this->arr = arr;
-        };
+        Qsort<T>() = default;
         virtual void sort (T *st , T *en , bool(*cmp)(T &a , T &b)) override;
 };
 

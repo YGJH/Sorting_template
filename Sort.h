@@ -9,11 +9,11 @@ class Sort {
     public:
         Sort(T *st , T *en , bool(*cmp)(T &a , T &b) = cmp_ ) {
             if(en - st <= 32) {
-                HeapSort<T> he(st);
+                HeapSort<T> he;
                 he.sort(st , en , cmp );
             }
             else {
-                Qsort<T> qq(st);
+                Qsort<T> qq;
                 qq.sort(st , en , cmp);
             }
         }

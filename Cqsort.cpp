@@ -29,7 +29,7 @@ void Qsort<T>::sort(T *st , T *en , bool(*cmp)(T &a , T &b) ) {
 			en--;
 		}
 		NNode<T>::swap(*st , *en);
-		if(en != st && *en == *st) {
+		if(en != st) {
 			st++;
 		}
 	}

@@ -8,7 +8,7 @@ class Qsort : virtual public NNode<T>{
         Qsort<T>(T *arr) {
             this->arr = arr;
         };
-        virtual void sort (T *st , T *en , bool(*cmp)(T &a , T &b) = NNode<T>::cmp_) override;
+        virtual void sort (T *st , T *en , bool(*cmp)(T &a , T &b)) override;
 };
 
 #endif

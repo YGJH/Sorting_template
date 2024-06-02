@@ -1,6 +1,5 @@
 #ifndef __NODE__
 #define __NODE__
-#include <iostream>
 template<class T>
 class Node {
     public:

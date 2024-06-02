@@ -29,7 +29,6 @@ template<class T>
 void HeapSort<T>::sort(T *st , T *en , bool(*cmp)(T &a , T &b) ) {
 	int size = (en - st );
 	build_heap(st , cmp , size);
-	// int size_ = size;
 	while(size--) {
 		this->swap(st[0] , st[size]);
 		heapfiy(st ,size,  cmp , 0);

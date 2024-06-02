@@ -1,6 +1,5 @@
 #ifndef __QSORT__
 #define __QSORT__
-// #include "Cheap.cpp"
 #include "Cnnode.cpp"
 template<class T>
 class Qsort : virtual public NNode<T>{

@@ -13,7 +13,6 @@ void Qsort<T>::sort(T *st , T *en , bool(*cmp)(T &a , T &b) ) {
 		return ;
 	}
 	T c = *(st + (siz>>1));
-	// if( (c < *st && *st < *en) || (c > *st && *st > *en) ) {
 	if( (cmp(*en , c) && cmp(*st , *en) ) || (cmp(c , *en) && cmp(*en , *st)) ){
 		c = *en;
 	}

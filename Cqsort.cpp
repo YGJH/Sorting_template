@@ -14,10 +14,12 @@ void Qsort<T>::sort(T *st , T *en , bool(*cmp)(T &a , T &b) ) {
 		return ;
 	}
 	T c = *(st + (siz>>1));
-	if( (c < *st && *st < *en) || (c > *st && *st > *en) ) {
+	// if( (c < *st && *st < *en) || (c > *st && *st > *en) ) {
+	if((cmp(c , *st) && cmp(*st , *en)) || (cmp(*en , *st) && cmp(*st , c)) ) {
 		c = *st;
 	}
-	else if( (*en > c && *en < *st) || (*en < c && *en > *st)) {
+	// else if( (*en > c && *en < *st) || (*en < c && *en > *st)) {
+	else if( (cmp(*en , c) && cmp(*st , *en)) || (cmp(c , *en) && cmp(*en , *st)) ) {
 		c = *en;
 	}
 	while(st != en) {

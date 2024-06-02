@@ -20,7 +20,7 @@ int n;
 template <typename T>
 constexpr static bool(*cmp_)(T &a , T &b) = [](T &a , T &b) { return a < b ;};
 template<typename T>
-void sort(T *st , T *en , bool(*cmp)(T &a , T &b) = cmp_<T> ) {
+inline void sort(T *st , T *en , bool(*cmp)(T &a , T &b) = cmp_<T> ) {
     if(en - st <= 100) {
         HeapSort<T> he(st);
         he.sort(st , en , cmp );

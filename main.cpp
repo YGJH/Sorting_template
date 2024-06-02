@@ -21,7 +21,7 @@ template <typename T>
 constexpr static bool(*cmp_)(T &a , T &b) = [](T &a , T &b) { return a < b ;};
 template<typename T>
 inline void sort(T *st , T *en , bool(*cmp)(T &a , T &b) = cmp_<T> ) {
-    if(en - st <= 100) {
+    if(en - st <= 32) {
         HeapSort<T> he(st);
         he.sort(st , en , cmp );
         he.print(st , en, [](T &b) { cout << b.id  << b.name << endl;});

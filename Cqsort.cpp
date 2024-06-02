@@ -3,7 +3,7 @@
 template<class T>
 void Qsort<T>::sort(T *st , T *en , bool(*cmp)(T &a , T &b) ) {
 	T * enn = en;
-	int siz = (en - st);
+	int siz = abs(en - st);
 	T *stt = st;
 	en--;
 	if(siz == 2) {
@@ -14,11 +14,9 @@ void Qsort<T>::sort(T *st , T *en , bool(*cmp)(T &a , T &b) ) {
 		return ;
 	}
 	T c = *(st + (siz>>1));
-	// if( (c < *st && *st < *en) || (c > *st && *st > *en) ) {
 	if((cmp(c , *st) && cmp(*st , *en)) || (cmp(*en , *st) && cmp(*st , c)) ) {
 		c = *st;
 	}
-	// else if( (*en > c && *en < *st) || (*en < c && *en > *st)) {
 	else if( (cmp(*en , c) && cmp(*st , *en)) || (cmp(c , *en) && cmp(*en , *st)) ) {
 		c = *en;
 	}
@@ -30,7 +28,7 @@ void Qsort<T>::sort(T *st , T *en , bool(*cmp)(T &a , T &b) ) {
 			en--;
 		}
 		Node<T>::swap(*st , *en);
-		if(en != st && *en == *st) {
+		if(en != st) {
 			st++;
 		}
 	}

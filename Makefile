@@ -12,4 +12,4 @@ Cnnode.o: Cnnode.cpp Cnnode.h
 	g++ Cnnode.cpp Cnnode.h -c Cnnode.o
 
 clean:
-	rm *.o efile/main
+	rm *.o efile/main *.gch

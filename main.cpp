@@ -36,7 +36,7 @@ signed main() {
     // qq.sort(arr , arr + n);
     // qq.print(arr , arr + n, [](Book &a) {std::cout << a.id << ' ' << a.name << std::endl;});
     Sort<Book> sort(arr ,arr + n);
-    sort.print(arr , arr + n , [](Book &a) { cout << a.id << ' ' << a.name << endl;});
+    sort.print(arr , arr + n , [](Book &a) { cout << a.id << a.name << endl;});
     return 0;
 
 }

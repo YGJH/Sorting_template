@@ -5,7 +5,6 @@ template<class T>
 class Node {
     protected:
         static constexpr void(*p_)(T &a) = [](T &a) {std::cout << a << std::endl;};
-        T * arr;
     public:
         void swap(T &a , T &b);
         int tmp = 0;

@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Cqsort.h"
 template<class T>
 void Qsort<T>::sort(T *st , T *en , bool(*cmp)(T &a , T &b) ) {

@@ -1,5 +1,4 @@
 #include "Cnode.h"
-#include <iostream>
 template<class T>
 void Node<T>::print(T *st , T *en, void(*p)(T &a)) {
     T *tmp = st;

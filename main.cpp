@@ -1,5 +1,3 @@
-#include <iostream>
-// #include "Cqsort.cpp"
 #include "Sort.cpp"
 using namespace std;
 const int MXN = 1e3;

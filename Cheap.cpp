@@ -1,5 +1,4 @@
 #include "Cheap.h"
-// using namespace std;
 
 template<class T>
 void HeapSort<T>::heapfiy(T *st ,int size , bool(*func)(T &a , T &b) , int i) {
